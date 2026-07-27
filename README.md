@@ -172,7 +172,6 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 <!--END_SECTION:top-repos-->
 
 
-
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4A90E2,100:0f2027&height=120&section=footer"/>
