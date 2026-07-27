@@ -168,10 +168,10 @@ Leave a message or just say hi by clicking below!
 [![Sign Guestbook](https://img.shields.io/badge/Guestbook-Sign%20Here-blue?style=for-the-badge&logo=github)](https://github.com/devsripathy/devsripathy/issues/new?title=Guestbook+Entry&body=Hi!+Just+visiting+your+profile.)
 
 ### Recent Visitors
-<!--START_SECTION:guestbook-->
-| 2026-07-27 | [@akashgprakash01](https://github.com/akashgprakash01) | Hi! Just visiting your profile.  |
+
 | Date | Visitor | Message |
 | --- | --- | --- |
+<!--START_SECTION:guestbook-->
 <!--END_SECTION:guestbook-->
 
 <br/>
