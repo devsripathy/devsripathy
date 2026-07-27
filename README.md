@@ -170,6 +170,12 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4A90E2,100:0f2027&height=120&section=footer"/>
 
+## 🚀 Featured Top 10 Open Source Repositories
+
+<!--START_SECTION:top-repos-->
+<!--END_SECTION:top-repos-->
+
+
 **⭐ Thanks for visiting — let's build something ambitious.**
 
 </div>
