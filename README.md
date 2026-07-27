@@ -161,6 +161,11 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 <img src="https://github-profile-trophy.vercel.app/?username=devsripathy&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=10"/>
 </div>
 
+## 🚀 Featured Top 10 Open Source Repositories
+
+<!--START_SECTION:top-repos-->
+<!--END_SECTION:top-repos-->
+
 ## 📖 Guestbook
 
 Leave a message or just say hi by clicking below!
