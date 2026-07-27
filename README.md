@@ -1,25 +1,22 @@
 <div align="center">
+  <!-- Animated wave banner -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:0F52BA&height=220&section=header&text=Sripathy%20J&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Aspiring%20.NET%20Developer%20%C2%B7%20AI%20Agent%20Builder%20%C2%B7%20IoT%20Systems%20%C2%B7%20Hackathon%20Winner&descAlignY=58&descSize=16" width="100%"/>
 
-<!-- Animated wave banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:0F52BA&height=220&section=header&text=Sripathy%20J&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Aspiring%20.NET%20Developer%20%C2%B7%20AI%20Agent%20Builder%20%C2%B7%20IoT%20Systems%20%C2%B7%20Hackathon%20Winner&descAlignY=58&descSize=16" width="100%"/>
+  <!-- Typing SVG -->
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=4A90E2&center=true&vCenter=true&width=650&lines=B.Tech+IT+%40+Karpagam+College+of+Engineering;.NET+C%23+%7C+ASP.NET+Core+%7C+Entity+Framework;Multi-Agent+AI+Systems+%7C+IoT+%7C+Browser+Automation;%F0%9F%A5%88+2nd+Place+%40+Dubai+International+Hackathon;%F0%9F%8F%86+State-Level+IoT+Hackathon+Winner" alt="Typing SVG" />
+  </a>
+  <br/>
 
-<!-- Typing SVG -->
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=4A90E2&center=true&vCenter=true&width=650&lines=B.Tech+IT+%40+Karpagam+College+of+Engineering;.NET+C%23+%7C+ASP.NET+Core+%7C+Entity+Framework;Multi-Agent+AI+Systems+%7C+IoT+%7C+Browser+Automation;%F0%9F%A5%88+2nd+Place+%40+Dubai+International+Hackathon;%F0%9F%8F%86+State-Level+IoT+Hackathon+Winner" alt="Typing SVG" />
-</a>
+  <!-- Socials -->
+  <p>
+    <a href="https://www.linkedin.com/in/dev-sripathy-j/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+    <a href="mailto:dev.sripathy@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+    <a href="https://www.instagram.com/_srixpathy/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+    <a href="https://leetcode.com/u/Dev_Sripathy/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"/></a>
+  </p>
 
-<br/>
-
-<!-- Socials -->
-<p>
-  <a href="https://linkedin.com/in/sripathy-j-886629331"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-  <a href="https://leetcode.com/u/Dev_Sripathy/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"/></a>
-  <a href="https://instagram.com/YOUR-INSTAGRAM"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
-  <a href="https://twitter.com/YOUR-TWITTER"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
-</p>
-
-<img src="https://komarev.com/ghpvc/?username=devsripathy&style=for-the-badge&color=4A90E2&label=PROFILE+VIEWS" alt="profile views"/>
-
+  <img src="https://komarev.com/ghpvc/?username=devsripathy&style=for-the-badge&color=4A90E2&label=PROFILE+VIEWS" alt="profile views"/>
 </div>
 
 <br/>
@@ -64,20 +61,16 @@ Third-year IT Engineering student with hands-on experience in **.NET C#** develo
 <td width="50%" valign="top">
 
 ### 💧 Smart Saline Bottle Monitoring System
-**IoT-based real-time IV level detection**
-
-Wireless alerts to nurse dashboards, reducing manual monitoring frequency. **Winner — state-level IoT hackathon**, judged by hospital administration and technical founders.
-
+**IoT-based real-time IV level detection**  
+Wireless alerts to nurse dashboards, reducing manual monitoring frequency. **Winner — state-level IoT hackathon**, judged by hospital administration and technical founders.  
 `IoT` `Embedded Systems` `Real-Time Alerts`
 
 </td>
 <td width="50%" valign="top">
 
 ### 🌊 Ergon Flow
-**Local browser automation agent**
-
-Accepts plain-language workflow descriptions and executes clicks, typing, scrolling, and reading — no APIs. Uses a free Gmail account for identity and stores interaction history in an editable local knowledge base. **Zero cloud dependency.**
-
+**Local browser automation agent**  
+Accepts plain-language workflow descriptions and executes clicks, typing, scrolling, and reading — no APIs. Uses a free Gmail account for identity and stores interaction history in an editable local knowledge base. **Zero cloud dependency.**  
 `Browser Automation` `Agentic AI` `Privacy-First`
 
 </td>
@@ -86,20 +79,16 @@ Accepts plain-language workflow descriptions and executes clicks, typing, scroll
 <td width="50%" valign="top">
 
 ### 🔀 Data Samanvayah Agent (DSA)
-**Multi-agent AutoML system**
-
-Accepts CSV input and runs data cleaning, EDA, model training, evaluation, and report generation through a three-tier memory system (short/long/episodic) — improving across datasets with no cloud, no API keys, no data leaving the local machine.
-
+**Multi-agent AutoML system**  
+Accepts CSV input and runs data cleaning, EDA, model training, evaluation, and report generation through a three-tier memory system (short/long/episodic) — improving across datasets with no cloud, no API keys, no data leaving the local machine.  
 `Python` `LangGraph` `Multi-Agent Orchestration`
 
 </td>
 <td width="50%" valign="top">
 
 ### 🏭 Industrial Machine Management System
-**Full-stack ASP.NET Core (.NET C#) application**
-
-Monitors industrial equipment, schedules preventive maintenance, manages work orders, and tracks machine health. Built with Entity Framework and SQL Server; improves maintenance efficiency and reduces unplanned downtime via a real-time dashboard.
-
+**Full-stack ASP.NET Core (.NET C#) application**  
+Monitors industrial equipment, schedules preventive maintenance, manages work orders, and tracks machine health. Built with Entity Framework and SQL Server; improves maintenance efficiency and reduces unplanned downtime via a real-time dashboard.  
 `ASP.NET Core` `Entity Framework` `SQL Server`
 
 </td>
@@ -135,14 +124,10 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 ## 📊 GitHub Stats
 
 <div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=devsripathy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=4A90E2&icon_color=4A90E2"/>
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devsripathy&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=4A90E2"/>
-
-<img src="https://streak-stats.demolab.com?user=devsripathy&theme=tokyonight&hide_border=true&background=0D1117&ring=4A90E2&fire=4A90E2&currStreakLabel=4A90E2" alt="streak stats"/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=devsripathy&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=4A90E2&line=4A90E2&point=ffffff" width="95%"/>
-
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=devsripathy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=4A90E2&icon_color=4A90E2"/>
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devsripathy&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=4A90E2"/>
+  <img src="https://streak-stats.demolab.com?user=devsripathy&theme=tokyonight&hide_border=true&background=0D1117&ring=4A90E2&fire=4A90E2&currStreakLabel=4A90E2" alt="streak stats"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=devsripathy&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=4A90E2&line=4A90E2&point=ffffff" width="95%"/>
 </div>
 
 <br/>
@@ -150,10 +135,7 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 ## 🟡 Pac-Man Contribution Graph
 
 <div align="center">
-
-<!-- Requires the "abozanona/pacman-contribution-graph" Action — see setup note -->
-<img src="https://raw.githubusercontent.com/devsripathy/devsripathy/output/pacman-contribution-graph.svg" alt="pacman contribution graph"/>
-
+  <img src="https://raw.githubusercontent.com/devsripathy/devsripathy/output/pacman-contribution-graph.svg" alt="pacman contribution graph"/>
 </div>
 
 <br/>
@@ -161,7 +143,7 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 ## 🏆 Trophies
 
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=devsripathy&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=10"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=devsripathy&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=10"/>
 </div>
 
 <br/>
@@ -171,11 +153,24 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 <!--START_SECTION:top-repos-->
 <!--END_SECTION:top-repos-->
 
+<br/>
+
+## 📖 Guestbook
+
+Leave a message or just say hi by clicking below!
+
+[![Sign Guestbook](https://img.shields.io/badge/Guestbook-Sign%20Here-blue?style=for-the-badge&logo=github)](https://github.com/devsripathy/devsripathy/issues/new?title=Guestbook+Entry&body=Hi!+Just+visiting+your+profile.)
+
+### Recent Visitors
+
+| Date | Visitor | Message |
+| :--- | :--- | :--- |
+<!--START_SECTION:guestbook-->
+<!--END_SECTION:guestbook-->
+
+<br/>
 
 <div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4A90E2,100:0f2027&height=120&section=footer"/>
-
-**⭐ Thanks for visiting — let's build something ambitious.**
-
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4A90E2,100:0f2027&height=120&section=footer"/>
+  **⭐ Thanks for visiting — let's build something ambitious.**
 </div>
