@@ -10,7 +10,7 @@ on:
       repo_count:
         description: 'Number of repositories to fetch'
         required: false
-        default: '10'
+        default: 10
         type: number
 
 permissions:
@@ -30,11 +30,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
-          
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
+          # Remove cache as we don't have requirements.txt
           
       - name: Fetch Top Repositories & Update README
         env:
@@ -127,11 +123,8 @@ jobs:
                   desc = desc[:97] + "..."
               
               # Format language
-              lang = repo.get("language") or "🌐 Multi"
-              if lang == "Multi":
-                  lang = "🌐 Multi"
-              else:
-                  lang = f"`{lang}`"
+              lang = repo.get("language") or "Multi"
+              lang = f"`{lang}`"
               
               # Format stars with emoji and commas
               stars = repo["stargazers_count"]
