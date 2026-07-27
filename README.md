@@ -170,11 +170,9 @@ Leave a message or just say hi by clicking below!
 ### Recent Visitors
 
 | Date | Visitor | Message |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 <!--START_SECTION:guestbook-->
-| 2026-07-27 | [@akashgprakash01](https://github.com/akashgprakash01) | Hey! man nice profile 👍  |
 <!--END_SECTION:guestbook-->
-
 <br/>
 
 <div align="center">
