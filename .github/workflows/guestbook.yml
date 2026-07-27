@@ -1,0 +1,45 @@
+name: Update Guestbook
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-readme:
+    if: contains(github.event.issue.title, 'Guestbook Entry')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Append visitor to README
+        run: |
+          USER="${{ github.event.issue.user.login }}"
+          BODY="${{ github.event.issue.body }}"
+          DATE=$(date +'%Y-%m-%d')
+          
+          # Clean body text to single line
+          CLEAN_BODY=$(echo "$BODY" | tr '\n' ' ' | sed 's/"/\\"/g')
+          
+          ENTRY="| $DATE | [@$USER](https://github.com/$USER) | $CLEAN_BODY |"
+          
+          # Insert new entry right after the comment marker
+          sed -i "/<!--START_SECTION:guestbook-->/a $ENTRY" README.md
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: add @${{ github.event.issue.user.login }} to guestbook" || exit 0
+          git push
+
+      - name: Close the issue automatically
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment: "Thanks for signing my guestbook! Your username has been added to my README. 🎉"
