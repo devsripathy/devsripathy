@@ -1,147 +1,175 @@
-name: Update Top Repositories
+<div align="center">
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-    inputs:
-      repo_count:
-        description: 'Number of repositories to fetch'
-        required: false
-        default: 10
-        type: number
+<!-- Animated wave banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:0F52BA&height=220&section=header&text=Sripathy%20J&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Aspiring%20.NET%20Developer%20%C2%B7%20AI%20Agent%20Builder%20%C2%B7%20IoT%20Systems%20%C2%B7%20Hackathon%20Winner&descAlignY=58&descSize=16" width="100%"/>
 
-permissions:
-  contents: write
+<!-- Typing SVG -->
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=4A90E2&center=true&vCenter=true&width=650&lines=B.Tech+IT+%40+Karpagam+College+of+Engineering;.NET+C%23+%7C+ASP.NET+Core+%7C+Entity+Framework;Multi-Agent+AI+Systems+%7C+IoT+%7C+Browser+Automation;%F0%9F%A5%88+2nd+Place+%40+Dubai+International+Hackathon;%F0%9F%8F%86+State-Level+IoT+Hackathon+Winner" alt="Typing SVG" />
+</a>
 
-jobs:
-  update-readme:
-    runs-on: ubuntu-latest
+<br/>
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+<!-- Socials -->
+<p>
+  <a href="https://linkedin.com/in/sripathy-j-886629331"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://leetcode.com/u/Dev_Sripathy/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"/></a>
+  <a href="https://instagram.com/YOUR-INSTAGRAM"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+  <a href="https://twitter.com/YOUR-TWITTER"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+</p>
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+<img src="https://komarev.com/ghpvc/?username=devsripathy&style=for-the-badge&color=4A90E2&label=PROFILE+VIEWS" alt="profile views"/>
 
-      - name: Fetch Top Repositories & Update README
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_COUNT: ${{ inputs.repo_count || 10 }}
-        run: |
-          cat > /tmp/update_top_repos.py << 'PYEOF'
-          import os, sys, json, re, time
-          import urllib.request, urllib.parse
-          from datetime import datetime
+</div>
 
-          token      = os.environ.get("GITHUB_TOKEN", "")
-          max_repos  = min(int(os.environ.get("REPO_COUNT", 10)), 100)
-          min_stars  = 25000
+<br/>
 
-          print(f"📊 Fetching top {max_repos} repos with >{min_stars:,} stars...")
+## 🧠 Summary
 
-          params = {
-              "q": f"stars:>{min_stars}",
-              "sort": "stars",
-              "order": "desc",
-              "per_page": max_repos,
-          }
-          url = "https://api.github.com/search/repositories?" + urllib.parse.urlencode(params)
+Third-year IT Engineering student with hands-on experience in **.NET C#** development and full-stack applications, plus a strong background in **AI agents, IoT systems, and browser automation**. Proven track record in hackathons with international recognition. Currently part of a Specialized .NET Developer Placement Batch, focused on **C#, .NET Core, ASP.NET Core**, and enterprise application development.
 
-          req = urllib.request.Request(url)
-          if token:
-              req.add_header("Authorization", f"token {token}")
-          req.add_header("User-Agent", "github-actions-top-repos")
-          req.add_header("Accept", "application/vnd.github.v3+json")
+- 🎓 B.Tech Information Technology @ **Karpagam College of Engineering**, Coimbatore, Tamil Nadu, India
+- 🏆 **2nd Place** — Dubai International Hackathon (AIESEC H4FT), out of 120 teams
+- 🥇 **State-Level IoT Hackathon Winner** — Smart Saline Bottle solution, out of 50 teams
+- 🚀 Selected for a fully-sponsored 2-week **AI & Solution Architecture Master Class** at Zayed University, Dubai (1 of 300 applicants)
+- 🧑‍💻 College Team Lead — National Entrepreneurship Challenge (elevated team to top 5% nationally)
 
-          items = []
-          for attempt in range(3):
-              try:
-                  with urllib.request.urlopen(req, timeout=30) as resp:
-                      data = json.loads(resp.read().decode())
-                      items = data.get("items", [])
-                      total = data.get("total_count", 0)
-                      print(f"✅ Found {total:,} matching repositories")
-                      break
-              except urllib.error.HTTPError as e:
-                  if e.code == 403 and attempt < 2:
-                      print(f"⚠️ Rate-limited – retry {attempt+1}/3")
-                      time.sleep(5)
-                  else:
-                      print(f"❌ HTTP {e.code}: {e.reason}")
-                      sys.exit(1)
-              except Exception as e:
-                  print(f"❌ {e}")
-                  if attempt == 2:
-                      sys.exit(1)
-                  time.sleep(3)
+<br/>
 
-          if not items:
-              print("❌ No repositories returned")
-              sys.exit(1)
+## 🛠️ Tech Stack
 
-          # ---------- clean Markdown table ----------
-          header = (
-              "| # | Repository | Description | Primary Tech | Stars |\n"
-              "|:-:|:-----------|:------------|:------------:|------:|"
-          )
+<div align="center">
 
-          rows = []
-          for idx, repo in enumerate(items, 1):
-              name  = repo["full_name"]
-              link  = repo["html_url"]
-              desc  = (repo.get("description") or "No description").replace("\n", " ").replace("|", "\\|")
-              if len(desc) > 90:
-                  desc = desc[:87] + "..."
-              lang  = f"`{repo.get('language') or 'Multi'}`"
-              stars = f"⭐ {repo['stargazers_count']:,}"
-              badge = " 🏆" if idx <= 3 else (" 💎" if repo["stargazers_count"] > 100_000 else "")
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-5C2D91?style=for-the-badge&logo=dotnet&logoColor=white)
+![Entity Framework](https://img.shields.io/badge/Entity_Framework-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Web API](https://img.shields.io/badge/Web_API-0F52BA?style=for-the-badge&logo=fastapi&logoColor=white)
 
-              rows.append(
-                  f"| {idx} | [{name}]({link}){badge} | {desc} | {lang} | {stars} |"
-              )
+</div>
 
-          table = header + "\n" + "\n".join(rows)
-          timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-          section = f"{table}\n\n*📅 Last updated: {timestamp}*\n"
+<br/>
 
-          # ---------- inject into README ----------
-          with open("README.md", "r", encoding="utf-8") as f:
-              readme = f.read()
+## 🚀 Featured Projects
 
-          start, end = "<!--START_SECTION:top-repos-->", "<!--END_SECTION:top-repos-->"
-          if start not in readme or end not in readme:
-              print("❌ Markers not found in README.md")
-              sys.exit(1)
+<table>
+<tr>
+<td width="50%" valign="top">
 
-          pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
-          new_readme = pattern.sub(f"{start}\n{section}{end}", readme)
+### 💧 Smart Saline Bottle Monitoring System
+**IoT-based real-time IV level detection**
 
-          with open("README.md", "w", encoding="utf-8") as f:
-              f.write(new_readme)
+Wireless alerts to nurse dashboards, reducing manual monitoring frequency. **Winner — state-level IoT hackathon**, judged by hospital administration and technical founders.
 
-          print("✅ README.md updated with clean table")
-          print("\n📊 Top 5:")
-          for i, r in enumerate(items[:5], 1):
-              print(f"  {i}. {r['full_name']} – ⭐ {r['stargazers_count']:,}")
-          PYEOF
+`IoT` `Embedded Systems` `Real-Time Alerts`
 
-          python3 /tmp/update_top_repos.py
+</td>
+<td width="50%" valign="top">
 
-      - name: Commit & push
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet README.md; then
-            echo "ℹ️ No changes"
-          else
-            git add README.md
-            git commit -m "docs: update top repositories [skip ci]"
-            git push
-            echo "✅ Pushed clean table"
-          fi
+### 🌊 Ergon Flow
+**Local browser automation agent**
+
+Accepts plain-language workflow descriptions and executes clicks, typing, scrolling, and reading — no APIs. Uses a free Gmail account for identity and stores interaction history in an editable local knowledge base. **Zero cloud dependency.**
+
+`Browser Automation` `Agentic AI` `Privacy-First`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🔀 Data Samanvayah Agent (DSA)
+**Multi-agent AutoML system**
+
+Accepts CSV input and runs data cleaning, EDA, model training, evaluation, and report generation through a three-tier memory system (short/long/episodic) — improving across datasets with no cloud, no API keys, no data leaving the local machine.
+
+`Python` `LangGraph` `Multi-Agent Orchestration`
+
+</td>
+<td width="50%" valign="top">
+
+### 🏭 Industrial Machine Management System
+**Full-stack ASP.NET Core (.NET C#) application**
+
+Monitors industrial equipment, schedules preventive maintenance, manages work orders, and tracks machine health. Built with Entity Framework and SQL Server; improves maintenance efficiency and reduces unplanned downtime via a real-time dashboard.
+
+`ASP.NET Core` `Entity Framework` `SQL Server`
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+## 🏅 Key Achievements
+
+| | |
+|---|---|
+| 💎 **Dubai Hackathon Success** | Secured 2nd place among 120 teams at the Dubai International Hackathon |
+| 💎 **IoT Hackathon Winner** | Won a state-level hackathon (50 teams) with the Smart Saline Bottle solution |
+| 💎 **Entrepreneurship Challenge Lead** | Led college team to the top 5% nationally in the National Entrepreneurship Challenge |
+| 💎 **AI Master Class Completion** | Completed a sponsored AI & Solution Architecture Master Class at Zayed University (1 of 300 selected) |
+
+<br/>
+
+## 📜 Certifications
+
+<div align="center">
+
+![AI Solution Architecture](https://img.shields.io/badge/AI_%26_Solution_Architecture-Zayed_University-0F52BA?style=flat-square)
+![Odoo](https://img.shields.io/badge/Odoo_HQ_Engineering_Session-Sharjah-714B67?style=flat-square)
+![C Programming](https://img.shields.io/badge/C_Programming-Infosys_Springboard-00B4B6?style=flat-square)
+![.NET Internship](https://img.shields.io/badge/.NET_Developer_Internship-Karpagam_College-512BD4?style=flat-square)
+
+</div>
+
+<br/>
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=devsripathy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=4A90E2&icon_color=4A90E2"/>
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devsripathy&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=4A90E2"/>
+
+<img src="https://streak-stats.demolab.com?user=devsripathy&theme=tokyonight&hide_border=true&background=0D1117&ring=4A90E2&fire=4A90E2&currStreakLabel=4A90E2" alt="streak stats"/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=devsripathy&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=4A90E2&line=4A90E2&point=ffffff" width="95%"/>
+
+</div>
+
+<br/>
+
+## 🟡 Pac-Man Contribution Graph
+
+<div align="center">
+
+<!-- Requires the "abozanona/pacman-contribution-graph" Action — see setup note -->
+<img src="https://raw.githubusercontent.com/devsripathy/devsripathy/output/pacman-contribution-graph.svg" alt="pacman contribution graph"/>
+
+</div>
+
+<br/>
+
+## 🏆 Trophies
+
+<div align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=devsripathy&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=10"/>
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4A90E2,100:0f2027&height=120&section=footer"/>
+
+**⭐ Thanks for visiting — let's build something ambitious.**
+
+</div>
