@@ -147,16 +147,13 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 
 <br/>
 
-## 🐍 Contribution Snake
+## 🟡 Contribution Graph
 
 <div align="center">
 
-<!-- Requires the "GitHub Profile Grid Snake" Action — see setup note below -->
-<img src="https://raw.githubusercontent.com/devsripathy/devsripathy/output/github-contribution-grid-snake-dark.svg" alt="snake animation"/>
+<img src="https://raw.githubusercontent.com/devsripathy/devsripathy/output/pacman-contribution-graph.svg" alt="pacman contribution graph"/>
 
 </div>
-
-<br/>
 
 ## 🏆 Trophies
 
