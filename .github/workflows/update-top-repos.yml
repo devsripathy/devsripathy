@@ -1,27 +1,12 @@
-name: Update Top Repositories
-
-on:
-  schedule:
-    # Runs every Monday at 00:00 UTC
-    - cron: '25 9 * * 1'
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  fetch-and-update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Fetch Top Repositories & Update README
+- name: Fetch Top Repositories & Update README
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 -c '
           import os, urllib.request, urllib.parse, json
+
+          # Read token cleanly from environment
+          token = os.environ.get("GITHUB_TOKEN", "")
 
           params = {
               "q": "stars:>25000",
@@ -32,7 +17,8 @@ jobs:
           url = "https://api.github.com/search/repositories?" + urllib.parse.urlencode(params)
 
           req = urllib.request.Request(url)
-          req.add_header("Authorization", f"token {os.environ.get(\"GITHUB_TOKEN\")}")
+          if token:
+              req.add_header("Authorization", f"token {token}")
           req.add_header("User-Agent", "Python-GitHub-Action")
 
           try:
@@ -76,11 +62,3 @@ jobs:
               else:
                   print("Error: Could not find START_SECTION or END_SECTION markers in README.md")
           '
-
-      - name: Commit and Push Changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "chore: update top 10 open-source repositories" || exit 0
-          git push
