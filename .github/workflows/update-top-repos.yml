@@ -2,7 +2,8 @@ name: Update Top Repositories
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Runs every Sunday
+    # Runs every Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -22,7 +23,6 @@ jobs:
           python3 -c '
           import os, urllib.request, urllib.parse, json
 
-          # Query top high-impact repositories with >25000 stars
           params = {
               "q": "stars:>25000",
               "sort": "stars",
