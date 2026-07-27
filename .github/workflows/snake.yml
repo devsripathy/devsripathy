@@ -7,6 +7,10 @@ on:
   push:
     branches: [ main ]
 
+# Grant GITHUB_TOKEN write access to push to the output branch
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
