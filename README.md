@@ -166,6 +166,18 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 | # | Repository | Description | Primary Tech | Stars |
 | :--- | :--- | :--- | :--- | :--- |
 <!--START_SECTION:top-repos-->
+| 1 | [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) 🏆 | Master programming by recreating your favorite technologies from scratch. | `Markdown` | ⭐ 531,954 |
+| 2 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) 🏆 | 😎 Awesome lists about all kinds of interesting topics | `Multi` | ⭐ 489,491 |
+| 3 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) 🏆 | freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer sci... | `TypeScript` | ⭐ 452,929 |
+| 4 | [public-apis/public-apis](https://github.com/public-apis/public-apis) 💎 | A collective list of free APIs | `Python` | ⭐ 452,708 |
+| 5 | [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books) 💎 | :books: Freely available programming books | `Python` | ⭐ 393,101 |
+| 6 | [openclaw/openclaw](https://github.com/openclaw/openclaw) 💎 | Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞  | `TypeScript` | ⭐ 384,288 |
+| 7 | [nilbuild/developer-roadmap](https://github.com/nilbuild/developer-roadmap) 💎 | Interactive roadmaps, guides and other educational content to help developers grow in their careers. | `TypeScript` | ⭐ 362,813 |
+| 8 | [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) 💎 | Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki fla... | `Python` | ⭐ 359,330 |
+| 9 | [jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university) 💎 | A complete computer science study plan to become a software engineer. | `Multi` | ⭐ 357,219 |
+| 10 | [vinta/awesome-python](https://github.com/vinta/awesome-python) 💎 | An opinionated list of Python frameworks, libraries, tools, and resources | `Python` | ⭐ 310,583 |
+
+*📅 Last updated: 2026-07-27 09:43:38 UTC*
 <!--END_SECTION:top-repos-->
 
 ## 📖 Guestbook
