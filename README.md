@@ -161,6 +161,18 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 <img src="https://github-profile-trophy.vercel.app/?username=devsripathy&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=10"/>
 </div>
 
+## 📖 Guestbook
+
+Leave a message or just say hi by clicking below!
+
+[![Sign Guestbook](https://img.shields.io/badge/Guestbook-Sign%20Here-blue?style=for-the-badge&logo=github)](https://github.com/devsripathy/devsripathy/issues/new?title=Guestbook+Entry&body=Hi!+Just+visiting+your+profile.)
+
+### Recent Visitors
+<!--START_SECTION:guestbook-->
+| Date | Visitor | Message |
+| --- | --- | --- |
+<!--END_SECTION:guestbook-->
+
 <br/>
 
 <div align="center">
