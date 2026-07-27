@@ -1,3 +1,34 @@
+name: Update Top Repositories
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      repo_count:
+        description: 'Number of repositories to fetch'
+        required: false
+        default: 10
+        type: number
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Fetch Top Repositories & Update README
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -54,7 +85,7 @@
               print("❌ No repositories returned")
               sys.exit(1)
 
-          # ---- clean Markdown table ----
+          # Clean Markdown table
           header = (
               "| # | Repository | Description | Primary Tech | Stars |\n"
               "|:-:|:-----------|:------------|:------------:|------:|"
@@ -76,7 +107,7 @@
           timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
           section = f"{table}\n\n*📅 Last updated: {timestamp}*\n"
 
-          # ---- inject ----
+          # Inject into README
           with open("README.md", "r", encoding="utf-8") as f:
               readme = f.read()
 
@@ -85,12 +116,8 @@
 
           if start not in readme or end not in readme:
               print("❌ Markers not found in README.md")
-              print("--- Last 40 lines of README for diagnosis ---")
+              print("--- Last 40 lines of README ---")
               print("\n".join(readme.splitlines()[-40:]))
-              print("--- Searching for any 'top-repos' or 'Featured Top' ---")
-              for i, line in enumerate(readme.splitlines(), 1):
-                  if "top-repos" in line.lower() or "featured top" in line.lower():
-                      print(f"  line {i}: {line}")
               sys.exit(1)
 
           pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
@@ -106,3 +133,16 @@
           PYEOF
 
           python3 /tmp/update_top_repos.py
+
+      - name: Commit & push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet README.md; then
+            echo "ℹ️ No changes"
+          else
+            git add README.md
+            git commit -m "docs: update top repositories [skip ci]"
+            git push
+            echo "✅ Pushed clean table"
+          fi
