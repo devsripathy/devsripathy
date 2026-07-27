@@ -30,7 +30,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          # Remove cache as we don't have requirements.txt
           
       - name: Fetch Top Repositories & Update README
         env:
@@ -71,15 +70,18 @@ jobs:
           
           # Make API request with retry logic
           items = []
+          total_count = 0
           retry_count = 3
+          
           for attempt in range(retry_count):
               try:
                   with urllib.request.urlopen(req, timeout=30) as response:
                       data = json.loads(response.read().decode())
                       items = data.get("items", [])
+                      total_count = data.get("total_count", 0)
                       
-                      if "total_count" in data:
-                          print(f"✅ Found {data['total_count']:,} repositories with >{min_stars:,} stars")
+                      if total_count > 0:
+                          print(f"✅ Found {total_count:,} repositories with >{min_stars:,} stars")
                       break
               except urllib.error.HTTPError as e:
                   if e.code == 403 and attempt < retry_count - 1:
@@ -89,8 +91,11 @@ jobs:
                   else:
                       print(f"❌ HTTP Error: {e.code} - {e.reason}")
                       if hasattr(e, "read"):
-                          error_detail = e.read().decode()
-                          print(f"   Details: {error_detail}")
+                          try:
+                              error_detail = e.read().decode()
+                              print(f"   Details: {error_detail}")
+                          except:
+                              pass
                       sys.exit(1)
               except Exception as e:
                   print(f"❌ Error fetching API: {e}")
