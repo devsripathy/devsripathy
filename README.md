@@ -163,6 +163,8 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 
 ## 🚀 Featured Top 10 Open Source Repositories
 
+| # | Repository | Description | Primary Tech | Stars |
+| :--- | :--- | :--- | :--- | :--- |
 <!--START_SECTION:top-repos-->
 <!--END_SECTION:top-repos-->
 
