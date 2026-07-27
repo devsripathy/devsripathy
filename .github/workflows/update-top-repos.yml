@@ -2,7 +2,7 @@ name: Update Top Repositories
 
 on:
   schedule:
-    - cron: '0 0 * * *'          # 00:00 UTC daily
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       repo_count:
@@ -35,20 +35,15 @@ jobs:
           REPO_COUNT: ${{ inputs.repo_count || 10 }}
         run: |
           cat > /tmp/update_top_repos.py << 'PYEOF'
-          import os
-          import sys
-          import urllib.request
-          import urllib.parse
-          import json
+          import os, sys, json, re, time
+          import urllib.request, urllib.parse
           from datetime import datetime
-          import re
 
-          token = os.environ.get("GITHUB_TOKEN", "")
-          repo_count = int(os.environ.get("REPO_COUNT", 10))
-          min_stars = 25000
-          max_repos = min(repo_count, 100)
+          token      = os.environ.get("GITHUB_TOKEN", "")
+          max_repos  = min(int(os.environ.get("REPO_COUNT", 10)), 100)
+          min_stars  = 25000
 
-          print(f"📊 Fetching top {max_repos} repositories with >{min_stars:,} stars...")
+          print(f"📊 Fetching top {max_repos} repos with >{min_stars:,} stars...")
 
           params = {
               "q": f"stars:>{min_stars}",
@@ -61,24 +56,21 @@ jobs:
           req = urllib.request.Request(url)
           if token:
               req.add_header("Authorization", f"token {token}")
-          req.add_header("User-Agent", "Python-GitHub-Action")
+          req.add_header("User-Agent", "github-actions-top-repos")
           req.add_header("Accept", "application/vnd.github.v3+json")
 
           items = []
-          total_count = 0
           for attempt in range(3):
               try:
-                  with urllib.request.urlopen(req, timeout=30) as response:
-                      data = json.loads(response.read().decode())
+                  with urllib.request.urlopen(req, timeout=30) as resp:
+                      data = json.loads(resp.read().decode())
                       items = data.get("items", [])
-                      total_count = data.get("total_count", 0)
-                      if total_count > 0:
-                          print(f"✅ Found {total_count:,} repositories with >{min_stars:,} stars")
+                      total = data.get("total_count", 0)
+                      print(f"✅ Found {total:,} matching repositories")
                       break
               except urllib.error.HTTPError as e:
                   if e.code == 403 and attempt < 2:
-                      print(f"⚠️ Rate limit, retrying… ({attempt+1}/3)")
-                      import time
+                      print(f"⚠️ Rate-limited – retry {attempt+1}/3")
                       time.sleep(5)
                   else:
                       print(f"❌ HTTP {e.code}: {e.reason}")
@@ -87,77 +79,69 @@ jobs:
                   print(f"❌ {e}")
                   if attempt == 2:
                       sys.exit(1)
-                  import time
                   time.sleep(3)
 
           if not items:
-              print("❌ Empty result from GitHub API")
+              print("❌ No repositories returned")
               sys.exit(1)
 
-          print(f"📝 Building markdown body with {len(items)} repositories...")
+          # ---------- clean Markdown table ----------
+          header = (
+              "| # | Repository | Description | Primary Tech | Stars |\n"
+              "|:-:|:-----------|:------------|:------------:|------:|"
+          )
 
           rows = []
           for idx, repo in enumerate(items, 1):
-              name = repo["full_name"]
-              url = repo["html_url"]
-              desc = (repo.get("description") or "No description provided.").replace("\n", " ").replace("|", "\\|")
-              if len(desc) > 100:
-                  desc = desc[:97] + "..."
-              lang = f"`{repo.get('language') or 'Multi'}`"
+              name  = repo["full_name"]
+              link  = repo["html_url"]
+              desc  = (repo.get("description") or "No description").replace("\n", " ").replace("|", "\\|")
+              if len(desc) > 90:
+                  desc = desc[:87] + "..."
+              lang  = f"`{repo.get('language') or 'Multi'}`"
               stars = f"⭐ {repo['stargazers_count']:,}"
               badge = " 🏆" if idx <= 3 else (" 💎" if repo["stargazers_count"] > 100_000 else "")
-              rows.append(f"| {idx} | [{name}]({url}){badge} | {desc} | {lang} | {stars} |")
 
-          table_body = "\n".join(rows) + "\n"
+              rows.append(
+                  f"| {idx} | [{name}]({link}){badge} | {desc} | {lang} | {stars} |"
+              )
+
+          table = header + "\n" + "\n".join(rows)
           timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-          footer = f"\n*📅 Last updated: {timestamp}*\n"
-          section_content = table_body + footer
+          section = f"{table}\n\n*📅 Last updated: {timestamp}*\n"
 
-          try:
-              with open("README.md", "r", encoding="utf-8") as f:
-                  readme = f.read()
-          except FileNotFoundError:
-              print("❌ README.md missing")
-              sys.exit(1)
+          # ---------- inject into README ----------
+          with open("README.md", "r", encoding="utf-8") as f:
+              readme = f.read()
 
-          start = "<!--START_SECTION:top-repos-->"
-          end = "<!--END_SECTION:top-repos-->"
+          start, end = "<!--START_SECTION:top-repos-->", "<!--END_SECTION:top-repos-->"
           if start not in readme or end not in readme:
-              print("❌ Markers missing in README.md")
+              print("❌ Markers not found in README.md")
               sys.exit(1)
 
           pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
-          new_section = f"{start}\n{section_content}{end}"
-          new_readme = pattern.sub(new_section, readme)
+          new_readme = pattern.sub(f"{start}\n{section}{end}", readme)
 
           with open("README.md", "w", encoding="utf-8") as f:
               f.write(new_readme)
 
-          if readme != new_readme:
-              print("✅ README.md updated")
-              print("\n📊 Top 5:")
-              for i, repo in enumerate(items[:5], 1):
-                  print(f"  {i}. {repo['full_name']} – ⭐ {repo['stargazers_count']:,}")
-              if len(items) > 5:
-                  print(f"  … and {len(items)-5} more")
-          else:
-              print("ℹ️ README already up-to-date")
+          print("✅ README.md updated with clean table")
+          print("\n📊 Top 5:")
+          for i, r in enumerate(items[:5], 1):
+              print(f"  {i}. {r['full_name']} – ⭐ {r['stargazers_count']:,}")
           PYEOF
 
           python3 /tmp/update_top_repos.py
 
-      - name: Commit and push
+      - name: Commit & push
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if git diff --quiet README.md; then
-            echo "ℹ️ No changes to commit"
+            echo "ℹ️ No changes"
           else
             git add README.md
             git commit -m "docs: update top repositories [skip ci]"
             git push
-            echo "✅ Pushed"
+            echo "✅ Pushed clean table"
           fi
-
-      - name: Done
-        run: echo "✅ $(date -u)"
