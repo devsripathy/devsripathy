@@ -1,34 +1,3 @@
-name: Update Top Repositories
-
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-    inputs:
-      repo_count:
-        description: 'Number of repositories to fetch'
-        required: false
-        default: 10
-        type: number
-
-permissions:
-  contents: write
-
-jobs:
-  update-readme:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
       - name: Fetch Top Repositories & Update README
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,9 +8,9 @@ jobs:
           import urllib.request, urllib.parse
           from datetime import datetime
 
-          token      = os.environ.get("GITHUB_TOKEN", "")
-          max_repos  = min(int(os.environ.get("REPO_COUNT", 10)), 100)
-          min_stars  = 25000
+          token     = os.environ.get("GITHUB_TOKEN", "")
+          max_repos = min(int(os.environ.get("REPO_COUNT", 10)), 100)
+          min_stars = 25000
 
           print(f"📊 Fetching top {max_repos} repos with >{min_stars:,} stars...")
 
@@ -85,7 +54,7 @@ jobs:
               print("❌ No repositories returned")
               sys.exit(1)
 
-          # ---------- clean Markdown table ----------
+          # ---- clean Markdown table ----
           header = (
               "| # | Repository | Description | Primary Tech | Stars |\n"
               "|:-:|:-----------|:------------|:------------:|------:|"
@@ -101,22 +70,27 @@ jobs:
               lang  = f"`{repo.get('language') or 'Multi'}`"
               stars = f"⭐ {repo['stargazers_count']:,}"
               badge = " 🏆" if idx <= 3 else (" 💎" if repo["stargazers_count"] > 100_000 else "")
-
-              rows.append(
-                  f"| {idx} | [{name}]({link}){badge} | {desc} | {lang} | {stars} |"
-              )
+              rows.append(f"| {idx} | [{name}]({link}){badge} | {desc} | {lang} | {stars} |")
 
           table = header + "\n" + "\n".join(rows)
           timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
           section = f"{table}\n\n*📅 Last updated: {timestamp}*\n"
 
-          # ---------- inject into README ----------
+          # ---- inject ----
           with open("README.md", "r", encoding="utf-8") as f:
               readme = f.read()
 
-          start, end = "<!--START_SECTION:top-repos-->", "<!--END_SECTION:top-repos-->"
+          start = "<!--START_SECTION:top-repos-->"
+          end   = "<!--END_SECTION:top-repos-->"
+
           if start not in readme or end not in readme:
               print("❌ Markers not found in README.md")
+              print("--- Last 40 lines of README for diagnosis ---")
+              print("\n".join(readme.splitlines()[-40:]))
+              print("--- Searching for any 'top-repos' or 'Featured Top' ---")
+              for i, line in enumerate(readme.splitlines(), 1):
+                  if "top-repos" in line.lower() or "featured top" in line.lower():
+                      print(f"  line {i}: {line}")
               sys.exit(1)
 
           pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
@@ -132,16 +106,3 @@ jobs:
           PYEOF
 
           python3 /tmp/update_top_repos.py
-
-      - name: Commit & push
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet README.md; then
-            echo "ℹ️ No changes"
-          else
-            git add README.md
-            git commit -m "docs: update top repositories [skip ci]"
-            git push
-            echo "✅ Pushed clean table"
-          fi
