@@ -186,5 +186,5 @@ Leave a message or just say hi by clicking below!
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4A90E2,100:0f2027&height=120&section=footer"/>
-  **⭐ Thanks for visiting — let's build something ambitious.**
+  ⭐ Thanks for visiting
 </div>
