@@ -153,18 +153,18 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 <!--START_SECTION:top-repos-->
 | # | Repository | Description | Primary Tech | Stars |
 |:-:|:-----------|:------------|:------------:|------:|
-| 1 | [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) 🏆 | Master programming by recreating your favorite technologies from scratch. | `Markdown` | ⭐ 541,614 |
-| 2 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) 🏆 | 😎 Awesome lists about all kinds of interesting topics | `Multi` | ⭐ 498,237 |
-| 3 | [public-apis/public-apis](https://github.com/public-apis/public-apis) 🏆 | A collective list of free APIs | `Python` | ⭐ 467,202 |
-| 4 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) 💎 | freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and co... | `TypeScript` | ⭐ 454,371 |
-| 5 | [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books) 💎 | :books: Freely available programming books | `Python` | ⭐ 394,870 |
-| 6 | [openclaw/openclaw](https://github.com/openclaw/openclaw) 💎 | Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞  | `TypeScript` | ⭐ 386,912 |
-| 7 | [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) 💎 | Learn how to design large-scale systems. Prep for the system design interview.  Include... | `Python` | ⭐ 365,118 |
-| 8 | [nilbuild/developer-roadmap](https://github.com/nilbuild/developer-roadmap) 💎 | Interactive roadmaps, guides and other educational content to help developers grow in t... | `TypeScript` | ⭐ 365,016 |
-| 9 | [jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university) 💎 | A complete computer science study plan to become a software engineer. | `Multi` | ⭐ 359,350 |
-| 10 | [vinta/awesome-python](https://github.com/vinta/awesome-python) 💎 | The definitive list that answers "I want to do X in Python, which tool should I use?" | `Python` | ⭐ 315,157 |
+| 1 | [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) 🏆 | Master programming by recreating your favorite technologies from scratch. | `Markdown` | ⭐ 541,882 |
+| 2 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) 🏆 | 😎 Awesome lists about all kinds of interesting topics | `Multi` | ⭐ 498,651 |
+| 3 | [public-apis/public-apis](https://github.com/public-apis/public-apis) 🏆 | A collective list of free APIs | `Python` | ⭐ 467,993 |
+| 4 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) 💎 | freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and co... | `TypeScript` | ⭐ 454,420 |
+| 5 | [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books) 💎 | :books: Freely available programming books | `Python` | ⭐ 394,954 |
+| 6 | [openclaw/openclaw](https://github.com/openclaw/openclaw) 💎 | Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞  | `TypeScript` | ⭐ 387,045 |
+| 7 | [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) 💎 | Learn how to design large-scale systems. Prep for the system design interview.  Include... | `Python` | ⭐ 365,309 |
+| 8 | [nilbuild/developer-roadmap](https://github.com/nilbuild/developer-roadmap) 💎 | Interactive roadmaps, guides and other educational content to help developers grow in t... | `TypeScript` | ⭐ 365,089 |
+| 9 | [jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university) 💎 | A complete computer science study plan to become a software engineer. | `Multi` | ⭐ 359,443 |
+| 10 | [vinta/awesome-python](https://github.com/vinta/awesome-python) 💎 | The definitive list that answers "I want to do X in Python, which tool should I use?" | `Python` | ⭐ 315,356 |
 
-*📅 Last updated: 2026-08-21 00:30:51 UTC*
+*📅 Last updated: 2026-08-22 00:28:29 UTC*
 <!--END_SECTION:top-repos-->
 
 <br/>
