@@ -153,18 +153,18 @@ Monitors industrial equipment, schedules preventive maintenance, manages work or
 <!--START_SECTION:top-repos-->
 | # | Repository | Description | Primary Tech | Stars |
 |:-:|:-----------|:------------|:------------:|------:|
-| 1 | [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) 🏆 | Master programming by recreating your favorite technologies from scratch. | `Markdown` | ⭐ 552,044 |
-| 2 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) 🏆 | 😎 Awesome lists about all kinds of interesting topics [NOTE: Pull requests are temporar... | `Multi` | ⭐ 516,387 |
-| 3 | [public-apis/public-apis](https://github.com/public-apis/public-apis) 🏆 | A collective list of free APIs | `Python` | ⭐ 486,813 |
-| 4 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) 💎 | freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and co... | `TypeScript` | ⭐ 456,732 |
-| 5 | [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books) 💎 | :books: Freely available programming books | `Python` | ⭐ 398,506 |
-| 6 | [openclaw/openclaw](https://github.com/openclaw/openclaw) 💎 | The AI that really does things. Any OS. Any Platform. The lobster way. 🦞  | `TypeScript` | ⭐ 391,488 |
-| 7 | [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) 💎 | Learn how to design large-scale systems. Prep for the system design interview.  Include... | `Python` | ⭐ 373,463 |
-| 8 | [nilbuild/developer-roadmap](https://github.com/nilbuild/developer-roadmap) 💎 | Interactive roadmaps, guides and other educational content to help developers grow in t... | `TypeScript` | ⭐ 368,980 |
-| 9 | [jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university) 💎 | A complete computer science study plan to become a software engineer. | `Multi` | ⭐ 362,331 |
-| 10 | [vinta/awesome-python](https://github.com/vinta/awesome-python) 💎 | The definitive list that answers "I want to do X in Python, which tool should I use?" | `Python` | ⭐ 325,943 |
+| 1 | [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) 🏆 | Master programming by recreating your favorite technologies from scratch. | `Markdown` | ⭐ 552,234 |
+| 2 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) 🏆 | 😎 Awesome lists about all kinds of interesting topics [NOTE: Pull requests are temporar... | `Multi` | ⭐ 516,826 |
+| 3 | [public-apis/public-apis](https://github.com/public-apis/public-apis) 🏆 | A collective list of free APIs | `Python` | ⭐ 487,022 |
+| 4 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) 💎 | freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and co... | `TypeScript` | ⭐ 456,782 |
+| 5 | [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books) 💎 | :books: Freely available programming books | `Python` | ⭐ 398,582 |
+| 6 | [openclaw/openclaw](https://github.com/openclaw/openclaw) 💎 | The AI that really does things. Any OS. Any Platform. The lobster way. 🦞  | `TypeScript` | ⭐ 391,543 |
+| 7 | [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) 💎 | Learn how to design large-scale systems. Prep for the system design interview.  Include... | `Python` | ⭐ 373,583 |
+| 8 | [nilbuild/developer-roadmap](https://github.com/nilbuild/developer-roadmap) 💎 | Interactive roadmaps, guides and other educational content to help developers grow in t... | `TypeScript` | ⭐ 369,054 |
+| 9 | [jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university) 💎 | A complete computer science study plan to become a software engineer. | `Multi` | ⭐ 362,356 |
+| 10 | [vinta/awesome-python](https://github.com/vinta/awesome-python) 💎 | The definitive list that answers "I want to do X in Python, which tool should I use?" | `Python` | ⭐ 326,182 |
 
-*📅 Last updated: 2026-10-09 03:16:33 UTC*
+*📅 Last updated: 2026-10-10 02:56:13 UTC*
 <!--END_SECTION:top-repos-->
 
 <br/>
